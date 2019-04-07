@@ -61,7 +61,7 @@ func main() {
 	if len(*hostHeader) > 0 {
 		host = *hostHeader
 	}
-	requestHeader := []byte(fmt.Sprintf("POST %s HTTP/1.1\nHost: %s\nContent-Type: application/x-www-form-urlencoded\nContent-Length: %d\n\n",
+	requestHeader := []byte(fmt.Sprintf("GET %s HTTP/1.1\nUserAgent: user-agent\n",
 		victimUri.RequestURI(), host, *contentLength))
 
 	dialWorkersLaunchInterval := *rampUpInterval / time.Duration(*dialWorkersCount)
